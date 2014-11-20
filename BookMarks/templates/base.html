@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>BookMarks</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" /></script>
+  <script src="{% static "BookMarks/js/jquery.oneup.js" %}"></script>
+  <link rel="stylesheet" href="{% static "BookMarks/css/style.css" %}">
+</head>
+
+<body>
+<!-- Hidden -->
+<div class="clone-me tbl-row-light" id="">
+	<div class="tbl-col-name"><span class="icon">i</span><a href=""></a></div>
+	<div class="tbl-col-del"><input type="checkbox" name="" value="" /></div>
+</div>
+<!-- Hidden -->
+
+<div id="wrapper">
+<header>
+	<div class="container">
+		<div class="userBox">
+			{% if user.is_authenticated %}
+			  Welcome, {{ user.get_username }}, <a href="/accounts/logout/">[Log out]</a> 
+			{% else %}
+			Hello Guest. <a href="/accounts/login/">[Login]</a> / <a href="/register/">[Register]</a>
+			{% endif %}
+		</div>
+	</div>
+</header>
+	<main>
+		<div class="container">
+		  	{% block content %}
+		  	{% endblock %}
+		</div>
+	</main>
+</div>
+
+  <script src="{% static "BookMarks/js/scripts.js" %}"></script>
+</body>
+</html>

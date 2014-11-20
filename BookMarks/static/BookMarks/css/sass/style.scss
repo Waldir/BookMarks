@@ -1,0 +1,269 @@
+@import "_base";
+@import "_mixins";
+
+
+// Place holders
+%white-text { color: #fff; }
+%vertical-middle { vertical-align: middle; }
+%link-fade{ @include transition(.5s); text-decoration: none; }
+
+%text-pop { @include text-shadow( 1px, 1px, 0px, #000 ); }
+%text-indent{ text-indent: -1999px; }
+%hide-overflow { overflow: hidden; }
+%inline-block { display: inline-block; }
+%block { display: block; }
+%max-width { width: 100%; }
+%content-width {  
+  max-width: $content-width;
+  width: 100%;
+  @media only screen and (max-width: $content-width)  { width: 100%; }
+}
+%icons {
+  background: url($icons) no-repeat;
+  @extend %text-indent;
+  @extend %hide-overflow;
+  @extend %inline-block;
+}
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both; } }
+
+/* Set all elements to 0 margin and padding */
+/* apply a natural box layout model to all elements, but allowing components to change */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  //border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  @include box-sizing( inherit );
+}
+/* tell the browser to render HTML 5 elements as block */
+article, aside, figure, footer, header, hgroup, nav, section { 
+  @extend %block;
+}
+
+/* Set html to 100% height */
+html, body 
+{ 
+  height: 100%;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  color:  $base-font-color;
+  @include font-size( $base-font-size );
+  //@include line-height( $base-line-height );
+  @extend %white-text;
+  @include box-sizing();
+}
+
+body{
+  background: $body-color;
+}
+
+hr {
+	margin: 10px 0px;
+
+}
+
+h1 {
+  @extend %max-width;
+  display: block;
+  padding: 5px;
+  @include font-size( 18 );
+  font-weight: normal;
+  font-variant: small-caps;
+
+  &:after 
+  {
+    content: "";
+    display: block;
+    background: $tbl-header-color; 
+
+    width: 100%; 
+    height: 1px;
+    margin: 3px 0 5px 0;
+    border: none; 
+  }
+}
+
+
+.tbl-row-light, .tbl-row-dark {
+	@include border-radius( 4px );
+	margin-top: 2px;
+	padding: 5px;
+}
+
+.tbl-row-light { @include transparent( #000, 0.05 ); }
+.tbl-row-dark  { @include transparent( #000, 0.10 ); }
+.tbl-col-name  { width: 95%; @extend %inline-block; }
+.tbl-col-del   { width: 4%; @extend %inline-block; }
+
+#loadn, #upDelete {
+	position:absolute;
+	top: -40px;
+	left: -40px;
+	display:none;
+	border-radius: 5px;
+	padding: 5px;
+	white-space: nowrap;
+  	overflow: hidden;
+}
+
+.oneUp {
+	position: relative;
+}
+
+.success {
+	background-color: #8cd96a;
+	border: 1px solid #1d470b;
+	color: #21510c; }
+.error {
+	background-color: #fbe3e4;
+	border: 1px solid #fbc2c4;
+	color: #901f23; }
+
+span[class^="error_"]  {
+	@extend %inline-block;
+	color: red;
+	ul { 
+		list-style-type: none;
+	}
+}
+
+#wrapper{
+  min-height:100%;
+  position:relative;
+}
+
+header {
+	@extend %max-width;
+	margin-top: 50px;
+}
+
+main, header {
+  @extend %max-width; }
+
+main .container, header .container {
+    margin: 0 auto;
+    @extend %content-width;
+}
+
+label 
+{
+  @extend %inline-block;
+  text-align: right;
+  padding-right: 5px;
+  width: 30%;
+}
+
+
+
+/*Imput Style*/
+input[type=text], 
+input[type=password],
+input[type=email],
+select  {
+  margin: 3px;
+  @include transparent(#000, .10);
+  color: $input-txt-color;
+  border: 1px solid #000; 
+  height: 25px; 
+  @include font-size( 12 );
+  padding-left: 4px;
+  @include border-radius( 6px );
+} 
+ 
+input[type=text]:focus, 
+input[type=password]:focus,
+select:focus
+{ 
+  outline: none; 
+  @include box-shadow( 0, 0, 8px, $btn-bg-color );
+} 
+option { 
+    /* Whatever color  you want */
+    background-color: $header-color;
+}
+
+input[type=submit] {
+	font-size: 14px;
+	font-family:Arial;
+	font-weight:normal;
+	-moz-border-radius:5px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #dcdcdc;
+	padding:4px 6px;
+	text-decoration:none;
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	background:-ms-linear-gradient( top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #ededed), color-stop(100%, #dfdfdf) );
+	background-color:#ededed;
+	color:#777777;
+	display:inline-block;
+	text-shadow:1px 1px 0px #ffffff;
+ 	-webkit-box-shadow:inset 1px 1px 0px 0px #ffffff;
+ 	-moz-box-shadow:inset 1px 1px 0px 0px #ffffff;
+ 	box-shadow:inset 1px 1px 0px 0px #ffffff;
+	&:hover {
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	background:-ms-linear-gradient( top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #dfdfdf), color-stop(100%, #ededed) ); }
+	background-color:#dfdfdf;
+	&:active {
+	position:relative;
+	top:1px; }
+}
+
+/* icons */
+%icons {
+  background-size: 20px;
+  background-repeat: no-repeat;
+  @extend %text-indent;
+  @extend %hide-overflow;
+  @extend %inline-block;
+  @extend %vertical-middle;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.folderIcon {
+  background-image: url('/static/BookMarks/img/folder.png');
+  @extend %icons;
+}
+
+.linkIcon {
+  background-image: url('/static/BookMarks/img/link.png');
+  @extend %icons;
+}
+
+.clone-me {
+	display: none;
+}
+
+%box {
+	@extend %max-width;
+	@include border-radius( 5px );
+	padding: 10px;
+	margin: 10px 0px;	
+}
+.formBox {
+	@extend %box;
+	@include transparent( #7fe22a, 0.20 );
+}
+
+.infoBox {
+	@extend %box;
+	@include transparent( #3891b8, 0.20 );
+}
+
+.userBox {
+	@extend %box;
+	@include transparent( #e6db74, 0.20 );
+}

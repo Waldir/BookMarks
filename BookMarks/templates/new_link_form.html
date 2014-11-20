@@ -1,0 +1,10 @@
+<div class="formBox">
+    <h1>Add new link</h1>
+    <form method="post" action="/new_link/{{ listId }}">{% csrf_token %}
+    <input type="hidden" name="listId" value="{{ listId }}" />
+    <div><label for="name">Name</label><input type="text" name="name" placeholder="Site name" /><span class="error_name"></span> </div>
+    <div><label for="link">URL</label><input type="text" name="link" placeholder="URL to site" /><span class="error_link"></span> </div>
+    <div><label for="tags">Tags</label><input type="text" name="tags" placeholder="Tags" /><span class="error_tags"></span> </div>
+    <div><label for="submit"></label><input type="submit" value="Add" /><span class="oneUp"><span id="loadn"></span></span></div>
+    </form>
+</div>

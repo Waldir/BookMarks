@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{%  block content %}
+
+<div class="infoBox">
+	<h1><a href="/">Bookmarks</a> &raquo; {{ listName }}</h1>
+</div>
+
+{% if user.is_authenticated %}<form method="post" action="/delete_links/">{% csrf_token %}{% endif %}
+	<div id="tbl-links">
+	{% for item in items %}
+		<div class="{% cycle 'tbl-row-light' 'tbl-row-dark' %}" id="record_{{ item.id }}">
+			<div class="tbl-col-name"><span class="linkIcon">i</span><a href="{{ item.link }}">{{ item.name }}</a></div>
+			<div class="tbl-col-del">{% if user.is_authenticated %}<input type="checkbox" name="links[]" value="{{ item.id }}" />{% endif %}</div>
+		</div>
+
+	{% endfor %}
+	</div>
+	{% if user.is_authenticated %}
+		<div class="formBox">
+			<input type="submit" value="Delete selected"><span class="oneUp"><span id="upDelete"></span></span>
+		</div>
+	{% endif %}
+</form>
+{% if user.is_authenticated %}
+	{% include "new_link_form.html" %}
+{% endif %}
+
+{% endblock %}

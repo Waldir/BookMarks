@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{%  block content %}
+
+<div class="infoBox">
+	<h1>BookMarks</h1>
+</div>
+
+{% if user.is_authenticated %}<form method="post" action="/delete_lists/">{% csrf_token %}{% endif %}
+	<div id="tbl-lists">
+	{% for list in lists %}
+		<div class="{% cycle 'tbl-row-light' 'tbl-row-dark' %}" id="record_{{ list.id }}" >
+			<div class="tbl-col-name"><span class="folderIcon">i</span><a href="list/{{ list.id }}">{{ list.name }}</a></div>
+			<div class="tbl-col-del">{% if user.is_authenticated %}<input type="checkbox" name="lists[]" value="{{ list.id }}" />{% endif %}</div>
+		</div>
+	{% endfor %}
+	</div>
+	{% if user.is_authenticated %}
+		<div class="formBox">
+			<input type="submit" value="Delete selected"><span class="oneUp"><span id="upDelete"></span></span>
+		</div>
+	{% endif %}
+</form>
+
+{% if user.is_authenticated %}
+	{% include "new_bookmark_form.html" %}
+{% endif %}
+
+{% endblock %}
