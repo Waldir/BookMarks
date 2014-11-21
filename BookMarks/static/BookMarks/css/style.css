@@ -1,259 +1,84 @@
-html, body {
-  color: #fff; }
+/*
+Error: Undefined variable: "$icons".
+        on line 22 of C:/Users/Wally/BookMarks/BookMarks/static/BookMarks/css/sass/style.scss
 
-.folderIcon, .linkIcon {
-  vertical-align: middle; }
+17:   max-width: $content-width;
+18:   width: 100%;
+19:   @media only screen and (max-width: $content-width)  { width: 100%; }
+20: }
+21: %icons {
+22:   background: url($icons) no-repeat;
+23:   @extend %text-indent;
+24:   @extend %hide-overflow;
+25:   @extend %inline-block;
+26: }
+27: %clearfix {
 
-.folderIcon, .linkIcon {
-  text-indent: -1999px; }
-
-.folderIcon, .linkIcon {
-  overflow: hidden; }
-
-.folderIcon, .linkIcon, .tbl-col-name, .tbl-col-del, span[class^="error_"], label {
-  display: inline-block; }
-
-article, aside, figure, footer, header, hgroup, nav, section {
-  display: block; }
-
-h1, header, main, .formBox, .infoBox, .userBox {
-  width: 100%; }
-
-main .container, header .container {
-  max-width: 700px;
-  width: 100%; }
-@media only screen and (max-width: 700px) {
-  main .container, header .container {
-    width: 100%; } }
-
-.folderIcon, .linkIcon {
-  background: url("../images/icons/icons.png") no-repeat; }
-
-/* Set all elements to 0 margin and padding */
-/* apply a natural box layout model to all elements, but allowing components to change */
-*, *:before, *:after {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  -webkit-box-sizing: inherit;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: inherit;
-  /* Firefox, other Gecko */
-  box-sizing: inherit;
-  /* Opera/IE 8+ */ }
-
-/* tell the browser to render HTML 5 elements as block */
-/* Set html to 100% height */
-html, body {
-  height: 100%;
-  font-family: "Verdana", "Helvetica", "monospace";
-  font-weight: normal;
-  color: #333333;
-  font-size: 14px;
-  font-size: 0.875rem;
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  /* Opera/IE 8+ */ }
-
-body {
-  background: #fff; }
-
-hr {
-  margin: 10px 0px; }
-
-h1 {
-  display: block;
-  padding: 5px;
-  font-size: 18px;
-  font-size: 1.125rem;
-  font-weight: normal;
-  font-variant: small-caps; }
-h1:after {
-  content: "";
-  display: block;
-  background: #a7a7a7;
-  width: 100%;
-  height: 1px;
-  margin: 3px 0 5px 0;
-  border: none; }
-
-.tbl-row-light, .tbl-row-dark {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  margin-top: 2px;
-  padding: 5px; }
-
-.tbl-row-light {
-  background-color: transparent;
-  background-color: rgba(0, 0, 0, 0.05);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#0D000000,endColorstr=#0D000000);
-  zoom: 1; }
-
-.tbl-row-dark {
-  background-color: transparent;
-  background-color: rgba(0, 0, 0, 0.1);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A000000,endColorstr=#1A000000);
-  zoom: 1; }
-
-.tbl-col-name {
-  width: 95%; }
-
-.tbl-col-del {
-  width: 4%; }
-
-#loadn, #upDelete {
-  position: absolute;
-  top: -40px;
-  left: -40px;
-  display: none;
-  border-radius: 5px;
-  padding: 5px;
-  white-space: nowrap;
-  overflow: hidden; }
-
-.oneUp {
-  position: relative; }
-
-.success {
-  background-color: #8cd96a;
-  border: 1px solid #1d470b;
-  color: #21510c; }
-
-.error {
-  background-color: #fbe3e4;
-  border: 1px solid #fbc2c4;
-  color: #901f23; }
-
-span[class^="error_"] {
-  color: red; }
-span[class^="error_"] ul {
-  list-style-type: none; }
-
-#wrapper {
-  min-height: 100%;
-  position: relative; }
-
-header {
-  margin-top: 50px; }
-
-main .container, header .container {
-  margin: 0 auto; }
-
-label {
-  text-align: right;
-  padding-right: 5px;
-  width: 30%; }
-
-/*Imput Style*/
-input[type=text], input[type=password], input[type=email], select {
-  margin: 3px;
-  background-color: transparent;
-  background-color: rgba(0, 0, 0, 0.1);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A000000,endColorstr=#1A000000);
-  zoom: 1;
-  color: #333333;
-  border: 1px solid #000;
-  height: 25px;
-  font-size: 12px;
-  font-size: 0.75rem;
-  padding-left: 4px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  border-radius: 6px; }
-
-input[type=text]:focus, input[type=password]:focus, select:focus {
-  outline: none;
-  -webkit-box-shadow: 0 0 8px #c1ba95;
-  -moz-box-shadow: 0 0 8px #c1ba95;
-  -ms-box-shadow: 0 0 8px #c1ba95;
-  -o-box-shadow: 0 0 8px #c1ba95;
-  box-shadow: 0 0 8px #c1ba95; }
-
-option {
-  /* Whatever color  you want */
-  background-color: #f5f5f5; }
-
-input[type=submit] {
-  font-size: 14px;
-  font-family: Arial;
-  font-weight: normal;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  border: 1px solid #dcdcdc;
-  padding: 4px 6px;
-  text-decoration: none;
-  background: -moz-linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
-  background: -ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #ededed), color-stop(100%, #dfdfdf));
-  background-color: #ededed;
-  color: #777777;
-  display: inline-block;
-  text-shadow: 1px 1px 0px #ffffff;
-  -webkit-box-shadow: inset 1px 1px 0px 0px #ffffff;
-  -moz-box-shadow: inset 1px 1px 0px 0px #ffffff;
-  box-shadow: inset 1px 1px 0px 0px #ffffff;
-  background-color: #dfdfdf; }
-input[type=submit]:hover {
-  background: -moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
-  background: -ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #dfdfdf), color-stop(100%, #ededed)); }
-input[type=submit]:active {
-  position: relative;
-  top: 1px; }
-
-/* icons */
-.folderIcon, .linkIcon {
-  background-size: 20px;
-  background-repeat: no-repeat;
-  width: 24px;
-  height: 24px;
-  margin-right: 5px; }
-
-.folderIcon {
-  background-image: url("/static/BookMarks/img/folder.png"); }
-
-.linkIcon {
-  background-image: url("/static/BookMarks/img/link.png"); }
-
-.clone-me {
-  display: none; }
-
-.formBox, .infoBox, .userBox {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0px; }
-
-.formBox {
-  background-color: transparent;
-  background-color: rgba(127, 226, 42, 0.2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#337FE22A,endColorstr=#337FE22A);
-  zoom: 1; }
-
-.infoBox {
-  background-color: transparent;
-  background-color: rgba(56, 145, 184, 0.2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#333891B8,endColorstr=#333891B8);
-  zoom: 1; }
-
-.userBox {
-  background-color: transparent;
-  background-color: rgba(230, 219, 116, 0.2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33E6DB74,endColorstr=#33E6DB74);
-  zoom: 1; }
+Backtrace:
+C:/Users/Wally/BookMarks/BookMarks/static/BookMarks/css/sass/style.scss:22
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/variable.rb:49:in `_perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/node.rb:50:in `perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/funcall.rb:170:in `perform_arg'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/funcall.rb:124:in `block in _perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/funcall.rb:124:in `each'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/funcall.rb:124:in `each_with_index'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/funcall.rb:124:in `each'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/funcall.rb:124:in `map'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/funcall.rb:124:in `_perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/node.rb:50:in `perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/list_literal.rb:62:in `block in _perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/list_literal.rb:62:in `map'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/list_literal.rb:62:in `_perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/script/tree/node.rb:50:in `perform'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:420:in `map'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:157:in `visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:8:in `visit'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/root_node.rb:20:in `render'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:268:in `render'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:491:in `update_stylesheet'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:469:in `on_file_changed'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:328:in `block in watch'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `call'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$icons\".\A         on line 22 of C:/Users/Wally/BookMarks/BookMarks/static/BookMarks/css/sass/style.scss\A \A 17:   max-width: $content-width;\A 18:   width: 100%;\A 19:   @media only screen and (max-width: $content-width)  { width: 100%; }\A 20: }\A 21: %icons {\A 22:   background: url($icons) no-repeat;\A 23:   @extend %text-indent;\A 24:   @extend %hide-overflow;\A 25:   @extend %inline-block;\A 26: }\A 27: %clearfix {"; }
