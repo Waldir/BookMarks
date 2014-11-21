@@ -101,9 +101,9 @@ def deleteLists(request):
 				# find the lists depending on the posted ids
 				listsDel = List.objects.filter( id__in = lists )
 				# find all the links conncted to those lists
-				links    = Link.objects.exclude( pk__in= listsDel )
+				#links    = Link.objects.exclude( pk__in= listsDel )
 				# delete the lists and all of its linkss
-				links.delete()
+				#links.delete()
 				listsDel.delete()
 			except Exception as e:
 				return json_response( { 'error': str(e) } )
