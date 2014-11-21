@@ -15,7 +15,7 @@ class Link(models.Model):
 	name = models.CharField(max_length=50, blank=False, null=False)    
 	link = models.URLField(blank=False, null=False)
 	dateCreated = models.DateField(editable=False)
-	dateUpdated = models.DateField()
+	dateUpdated = models.DateField(editable=True)
 	tags =  models.TextField(blank=True, null=True)
 
 	# Return a nice, human-readable representation of the model from the __unicode__() method.
@@ -25,7 +25,7 @@ class Link(models.Model):
 class List(models.Model):
 	name = models.CharField(max_length=50, blank=False, null=False)     
 	dateCreated = models.DateField(editable=False)
-	dateUpdated = models.DateField()
+	dateUpdated = models.DateField(editable=True)
 	links = models.ManyToManyField(Link)
 
 	# Return a nice, human-readable representation of the model from the __unicode__() method.

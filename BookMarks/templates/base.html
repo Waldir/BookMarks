@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="userBox">
 			{% if user.is_authenticated %}
-			  Welcome, {{ user.get_username }}, <a href="/accounts/logout/">[Log out]</a> 
+			  Welcome, {{ user.get_username }}, <a href="/logout/">[Log out]</a> 
 			{% else %}
 			Hello Guest. <a href="/accounts/login/">[Login]</a> / <a href="/register/">[Register]</a>
 			{% endif %}

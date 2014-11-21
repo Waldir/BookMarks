@@ -2,12 +2,9 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_protect
 from datetime import datetime
 from .models import List, Link, UserExtra
-from django.db import IntegrityError
 from .forms import NewListForm, NewLinkForm, RegisterForm
-from django.core import serializers
 import json
 from django.contrib.auth.models import User
 
@@ -16,11 +13,15 @@ def json_response(json_str):
     return HttpResponse( json.dumps( json_str ), content_type = "application/json" ) 
 
 def home(request):
-	return render_to_response("lists.html", {'lists': List.objects.all() }, RequestContext(request))
+	allLists = List.objects.all()
+	return render_to_response("lists.html", {'lists': allLists }, RequestContext(request))
 
 #Render the login page
 def login(request):
 	return render_to_response("login.html")
+
+def logged_out(request):
+	return render_to_response("logout.html")
 
 #Render
 def list(request, id):
@@ -41,8 +42,8 @@ def register(request):
 				id = User.objects.latest('id')
 				verified = UserExtra.objects.create( userid = id.pk, verified = True, approval_date = datetime.now() )
 				verified.save()
-			except Exception, e:
-				return render_to_response("register.html", { 'form': form  }, RequestContext(request)) 
+			except Exception as e:
+				return render_to_response("register.html", { 'form': form, 'e': e  }, RequestContext(request)) 
 			return render_to_response('registered.html', { 'name': username, 'date': datetime.now() } )
 		else:
 			return render_to_response("register.html", { 'form': form }, RequestContext(request))
@@ -58,7 +59,7 @@ def newList(request):
 			try:
 				newBookmark = List.objects.create( name=name, dateCreated = datetime.now(), dateUpdated = datetime.now() )
 				newBookmark.save()
-			except Exception,e:
+			except Exception as e:
 				# Error
 				return json_response( { 'error': str(e) } )
 			# Inserted succes
@@ -81,7 +82,7 @@ def newLink(request, listId):
 				addLink.save()
 				addToList = List.objects.get( id = listId )
 				addToList.links.add( addLink )
-			except Exception, e:
+			except Exception as e:
 				return json_response( { 'error': str(e) } )
 			id = Link.objects.latest('id')
 			return json_response( { 'added': { 'msg': 'The link was added.', 'id': id.pk, 'name': name, 'url': link } } )
@@ -104,7 +105,7 @@ def deleteLists(request):
 				# delete the lists and all of its linkss
 				links.delete()
 				listsDel.delete()
-			except Exception, e:
+			except Exception as e:
 				return json_response( { 'error': str(e) } )
 			return json_response( {'deleted' : { 'items' : lists, 'msg': 'Deleted!' } } )
 
@@ -117,7 +118,7 @@ def deleteLinks(request):
 		else:
 			try:
 				Link.objects.filter( id__in = links ).delete()
-			except Exception, e:
+			except Exception as e:
 				return json_response( { 'error': str(e) } )
 			return json_response( {'deleted' : {'items' : links, 'msg': 'Deleted!' } } )
 

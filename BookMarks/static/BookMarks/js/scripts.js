@@ -79,6 +79,7 @@ $(document).ready(function()
 							$(this).show();
 						});
 				    this.reset();
+				    $(this).find('input[type=text]').val('');
 				});
 
 			// else if an Exception was thrown
